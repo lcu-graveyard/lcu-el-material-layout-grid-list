@@ -1,0 +1,39 @@
+<div>
+	<button mat-raised-button class="push-left" (click)="AddPageElement()">
+		<mat-icon>add</mat-icon> Add Grid Tile
+	</button>
+
+	<button mat-raised-button class="push-left" (click)="ManageGridSettings()">
+		<mat-icon>settings</mat-icon> Manage Grid Settings
+	</button>
+</div>
+
+<mat-grid-list class="push-out" [cols]="Details.Columns" [rowHeight]="Details.RowHeight" [gutterSize]="Details.GutterSize">
+	<ng-container *ngFor="let pe of Details.Elements; let i = index;">
+		<mat-grid-tile *ngIf="Details.Configs[i]; let cfg" [colspan]="cfg.ColumnSpan" [rowspan]="cfg.RowSpan">
+			<div class="contents {{pe.Rendering ? pe.Rendering.Lookup || '' : ''}}">
+				<forge-page-element [element]="pe" [state]="GetBuilderState(pe)" [context]="Context" [data]="Data" [force-header]="true" [show-delete-action]="false">
+					<ng-container ngProjectAs="main-menu-actions">
+						<button mat-menu-item (click)="RemovePageElement(pe, i)">Delete</button>
+					</ng-container>
+
+					<ng-container ngProjectAs="actions">
+						<button mat-icon-button [matMenuTriggerFor]="sizeMenu"><mat-icon>settings_overscan</mat-icon></button>
+
+						<mat-menu #sizeMenu="matMenu">
+							<button mat-menu-item (click)="SetConfigValue(cfg, 'ColumnSpan', cfg.ColumnSpan + 1)" [disabled]="cfg.ColumnSpan >= Details.Columns">Expand</button>
+
+							<button mat-menu-item (click)="SetConfigValue(cfg, 'ColumnSpan', cfg.ColumnSpan - 1)" [disabled]="cfg.ColumnSpan <= 1">Shrink</button>
+
+							<button mat-menu-item (click)="SetConfigValue(cfg, 'RowSpan', cfg.RowSpan + 1)" [disabled]="Details.Rows && cfg.RowSpan >= Details.Rows">Raise</button>
+
+							<button mat-menu-item (click)="SetConfigValue(cfg, 'RowSpan', cfg.RowSpan - 1)" [disabled]="cfg.RowSpan <= 1">Lower</button>
+
+							<button mat-menu-item (click)="ManageItemSettings(cfg)"><mat-icon>settings</mat-icon> Edit</button>
+						</mat-menu>
+					</ng-container>
+				</forge-page-element>
+			</div>
+		</mat-grid-tile>
+	</ng-container>
+</mat-grid-list>

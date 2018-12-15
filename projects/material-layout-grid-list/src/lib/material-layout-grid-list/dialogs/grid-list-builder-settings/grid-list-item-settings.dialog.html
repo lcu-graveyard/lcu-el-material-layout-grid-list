@@ -1,0 +1,23 @@
+<form #form="ngForm">
+	<h2 mat-dialog-title>Item Settings</h2>
+
+	<div mat-dialog-content>
+		<mat-form-field class="mat-full-width">
+			<input matInput type="number" placeholder="Column Span" [(ngModel)]="Config.ColumnSpan" name="colSpan" required />
+		</mat-form-field>
+
+		<mat-form-field class="mat-full-width">
+			<input matInput type="number" placeholder="Row Span" [(ngModel)]="Config.RowSpan" name="rowSpan" required />
+		</mat-form-field>
+	</div>
+
+	<div mat-dialog-actions>
+		<button mat-raised-button type="submit" color="primary" (click)="Save()" [disabled]="!form.form.valid">
+			Save Control
+		</button>
+
+		<button mat-button color="warn" (click)="Cancel()">
+			Cancel
+		</button>
+	</div>
+</form>

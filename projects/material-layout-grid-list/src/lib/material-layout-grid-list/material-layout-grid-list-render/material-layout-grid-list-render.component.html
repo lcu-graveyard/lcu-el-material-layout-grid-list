@@ -1,0 +1,15 @@
+<mat-grid-list [cols]="Details.Columns" [rowHeight]="Details.RowHeight" [gutterSize]="Details.GutterSize">
+	<!--<ng-container *ngFor="let pe of Details.Elements; let i = index;">
+		<mat-grid-tile *ngIf="Details.Configs[i]; let cfg" [colspan]="cfg.ColumnSpan" [rowspan]="cfg.RowSpan">
+			<div class="contents {{pe.Rendering ? pe.Rendering.Lookup || '' : ''}}">
+				<display-component [element]="pe" state="Render" [data]="Data"></display-component>
+			</div>
+		</mat-grid-tile>
+	</ng-container>-->
+	<ng-container *ngFor="let info of RenderElements; let i = index;">
+		<mat-grid-tile *ngIf="Details.Configs[i]; let cfg" [colspan]="cfg.ColumnSpan" [rowspan]="cfg.RowSpan">
+			<forge-page-element [element]="info.Element" state="Render" [context]="info.Context" [data]="Data">
+			</forge-page-element>
+		</mat-grid-tile>
+	</ng-container>
+</mat-grid-list>

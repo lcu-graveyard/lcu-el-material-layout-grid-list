@@ -1,0 +1,36 @@
+<form #form="ngForm">
+	<h2 mat-dialog-title>List Settings</h2>
+
+	<div mat-dialog-content>
+		<mat-form-field class="mat-full-width">
+			<input matInput type="number" placeholder="Columns" [(ngModel)]="Details.Columns" name="cols" required />
+		</mat-form-field>
+	
+		<mat-form-field class="mat-full-width">
+			<input matInput placeholder="Row Height" [matAutocomplete]="rowHeightAuto" [(ngModel)]="Details.RowHeight" name="rowHeight" required />
+	
+			<mat-autocomplete #rowHeightAuto="matAutocomplete">
+				<mat-option value="1:1">1:1</mat-option>
+				<mat-option value="150px">150px</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	
+		<mat-form-field class="mat-full-width">
+			<input matInput type="number" placeholder="Rows" [(ngModel)]="Details.Rows" name="rows" />
+		</mat-form-field>
+	
+		<mat-form-field class="mat-full-width">
+			<input matInput placeholder="Gutter Size" [(ngModel)]="Details.GutterSize" name="gutter" required />
+		</mat-form-field>
+	</div>
+
+	<div mat-dialog-actions>
+		<button mat-raised-button type="submit" color="primary" (click)="Save()" [disabled]="!form.form.valid">
+			Save Control
+		</button>
+
+		<button mat-button color="warn" (click)="Cancel()">
+			Cancel
+		</button>
+	</div>
+</form>
