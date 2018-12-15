@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { BaseModeledResponse, Status } from '@lowcodeunit/common';
-import { ForgeMaterialLayoutGridListConfig } from './grid-list.core';
+import { ForgeMaterialLayoutGridListConfig } from '../../material-layout-grid-list.core';
 
 @Component({
 	selector: 'grid-list-item-settings-dialog',
