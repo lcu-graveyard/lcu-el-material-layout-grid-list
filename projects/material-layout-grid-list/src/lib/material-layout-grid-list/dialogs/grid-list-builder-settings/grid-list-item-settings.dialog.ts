@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { BaseModeledResponse, Status } from '@lowcodeunit/common';
+import { Status } from '@lcu/common';
+import { BaseModeledResponse } from '@lcu/core';
 import { ForgeMaterialLayoutGridListConfig } from '../../material-layout-grid-list.core';
 
 @Component({

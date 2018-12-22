@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { DndModule } from '@beyerleinf/ngx-dnd';
-import { FathymSharedModule } from '@lowcodeunit/common';
-import { BaseDisplayModule, ForgeBuildersCoreModule } from '@lowcodeunit/elements';
+import { FathymSharedModule } from '@lcu/hosting';
+import { BaseDisplayModule } from '@lcu/elements';
 import { ForgeMaterialLayoutGridListBuilderComponent } from './material-layout-grid-list-builder/material-layout-grid-list-builder.component';
 import { ForgeMaterialLayoutGridListMarketplaceComponent } from './material-layout-grid-list-marketplace/material-layout-grid-list-marketplace.component';
 import { ForgeMaterialLayoutGridListRenderComponent } from './material-layout-grid-list-render/material-layout-grid-list-render.component';
 import { ForgeMaterialLayoutGridListSettingsDialog } from './dialogs/grid-list-settings/grid-list-settings.dialog';
 import { ForgeMaterialLayoutGridListItemSettingsDialog } from './dialogs/grid-list-builder-settings/grid-list-item-settings.dialog';
 import { MatAutocompleteModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
+import { DAFUIModule } from '@lcu/daf-ui';
 
 export class ForgeMaterialLayoutGridListDisplayModule extends BaseDisplayModule {
 	public Builder() {
@@ -34,7 +35,7 @@ var comps = [
 @NgModule({
 	imports: [
 		FathymSharedModule,
-		ForgeBuildersCoreModule,
+		DAFUIModule,
 		DndModule,
 		MatAutocompleteModule,
 		MatButtonModule,

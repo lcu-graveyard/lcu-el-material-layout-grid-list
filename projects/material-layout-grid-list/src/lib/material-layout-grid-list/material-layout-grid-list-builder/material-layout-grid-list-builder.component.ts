@@ -1,10 +1,11 @@
 import { Component, Injector } from '@angular/core';
-import { IControlBuilder, ForgeGenericControl } from '@lowcodeunit/elements';
+import { IControlBuilder } from '@lcu/elements';
+import { ForgeGenericControl } from '@lcu/daf-ui';
 import { ForgeMaterialLayoutGridListDetails, ForgeMaterialLayoutGridListConfig } from '../material-layout-grid-list.core';
-import { PageUIService } from '@lowcodeunit/core';
 import { ForgeMaterialLayoutGridListSettingsDialog } from '../dialogs/grid-list-settings/grid-list-settings.dialog';
-import { BaseModeledResponse, isResultSuccess } from '@lowcodeunit/common';
 import { ForgeMaterialLayoutGridListItemSettingsDialog } from '../dialogs/grid-list-builder-settings/grid-list-item-settings.dialog';
+import { PageUIService } from '@lcu/daf-common';
+import { BaseModeledResponse, isResultSuccess } from '@lcu/core';
 
 @Component({
 	selector: 'forge-material-layout-grid-list-builder',

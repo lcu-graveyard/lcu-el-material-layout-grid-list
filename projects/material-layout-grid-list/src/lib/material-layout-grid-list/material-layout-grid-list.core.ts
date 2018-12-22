@@ -1,4 +1,4 @@
-import { ForgeRenderingDetails } from '@lowcodeunit/core';
+import { ForgeRenderingDetails } from '@lcu/elements';
 
 export class ForgeMaterialLayoutGridListDetails extends ForgeRenderingDetails<ForgeMaterialLayoutGridListConfig> {
 	public Columns: number;

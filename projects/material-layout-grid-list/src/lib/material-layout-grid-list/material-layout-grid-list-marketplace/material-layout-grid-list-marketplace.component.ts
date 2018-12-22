@@ -1,5 +1,6 @@
 import { Component, Injector } from '@angular/core';
-import { IControlMarketplace, ForgeGenericControl } from '@lowcodeunit/elements';
+import { IControlMarketplace } from '@lcu/elements';
+import { ForgeGenericControl } from '@lcu/daf-ui';
 import { ForgeMaterialLayoutGridListDetails, ForgeMaterialLayoutGridListConfig } from '../material-layout-grid-list.core';
 
 @Component({
